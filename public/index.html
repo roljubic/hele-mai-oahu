@@ -199,6 +199,7 @@
     .fbot a:hover{color:#7abf9e}
     @media(max-width:1024px){.wrap{padding:0 24px}.wg,.cg{grid-template-columns:1fr;gap:50px}.sg,.tg,.bg2{grid-template-columns:1fr}.psteps{grid-template-columns:1fr 1fr}.hg{grid-template-columns:1fr 1fr}.fg2{grid-template-columns:1fr 1fr;gap:36px}.nl{display:none}.bg{display:flex}.cbi{grid-template-columns:1fr;gap:28px}.hst-row{flex-wrap:wrap}}
     @media(max-width:640px){.wrap{padding:0 18px}section{padding:80px 0}h1{font-size:2.6rem}.hbtns{flex-direction:column}.fr{grid-template-columns:1fr}.psteps,.hg{grid-template-columns:1fr}.fg2{grid-template-columns:1fr}.cf{padding:32px 24px}}
+  #scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#2c5f4a,#5a9e80);z-index:9999;transition:width .1s linear;}
   </style>
 
   <script type="application/ld+json">
@@ -217,6 +218,7 @@
   </script>
 </head>
 <body>
+  <div id="scroll-progress"></div>
   <div style="text-align:center;padding:14px 24px;background:#1a3a2a;color:white;">
     <span style="font-family:sans-serif;font-size:0.88rem;letter-spacing:0.05em;">
       🌿 Now accepting Q2 2026 relocation engagements — <a href="#contact" style="color:#7ec8a0;text-decoration:underline;">Schedule your free consultation</a>
@@ -455,7 +457,7 @@
   const obs=new IntersectionObserver(e=>e.forEach(e=>e.isIntersecting&&e.target.classList.add('on')),{threshold:.1,rootMargin:'0px 0px -50px 0px'});
   document.querySelectorAll('.r').forEach(r=>obs.observe(r));
   setTimeout(()=>document.querySelectorAll('.hero .r').forEach(r=>r.classList.add('on')),100);
-  window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('s',scrollY>60));
+  window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('s',scrollY>60);const p=document.getElementById('scroll-progress');if(p)p.style.width=Math.min((scrollY/(document.documentElement.scrollHeight-innerHeight))*100,100)+'%';});
   document.getElementById('burger').addEventListener('click',()=>{const l=document.querySelector('.nl');const o=l.style.display==='flex';l.style.cssText=o?'display:none':'display:flex;flex-direction:column;position:fixed;top:62px;left:0;right:0;background:rgba(247,244,239,.97);backdrop-filter:blur(16px);padding:28px 40px;gap:22px;border-bottom:1px solid var(--border)'});
   document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();const b=this.querySelector('.fsub');b.textContent='✓ Consultation Booked — We\'ll Reach Out Within 24 Hours';b.style.background='#1a3828';b.disabled=true});
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
