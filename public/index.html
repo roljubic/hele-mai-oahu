@@ -125,7 +125,7 @@
     /* PROCESS */
     .proc{background:var(--dark);color:#fff}
     .psteps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:72px;border:1px solid rgba(255,255,255,.06)}
-    .pstep{padding:44px 30px;border-right:1px solid rgba(255,255,255,.06);transition:background .3s;position:relative}
+    .pstep{padding:44px 30px;border-right:1px solid rgba(255,255,255,.06);transition:background .3s;position:relative}.pstep:not(:last-child)::after{content:"→";position:absolute;right:-11px;top:44px;font-size:1.1rem;color:rgba(44,95,74,.7);z-index:2;pointer-events:none}@media(max-width:1024px){.pstep:not(:last-child)::after{display:none}}
     .pstep:last-child{border-right:none}
     .pstep:hover{background:rgba(44,95,74,.12)}
     .pstep::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7abf9e,transparent);opacity:0;transition:opacity .3s}
