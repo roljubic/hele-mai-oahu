@@ -200,6 +200,15 @@
     @media(max-width:1024px){.wrap{padding:0 24px}.wg,.cg{grid-template-columns:1fr;gap:50px}.sg,.tg,.bg2{grid-template-columns:1fr}.psteps{grid-template-columns:1fr 1fr}.hg{grid-template-columns:1fr 1fr}.fg2{grid-template-columns:1fr 1fr;gap:36px}.nl{display:none}.bg{display:flex}.cbi{grid-template-columns:1fr;gap:28px}.hst-row{flex-wrap:wrap}}
     @media(max-width:640px){.wrap{padding:0 18px}section{padding:80px 0}h1{font-size:2.6rem}.hbtns{flex-direction:column}.fr{grid-template-columns:1fr}.psteps,.hg{grid-template-columns:1fr}.fg2{grid-template-columns:1fr}.cf{padding:32px 24px}}
   #scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#2c5f4a,#5a9e80);z-index:9999;transition:width .1s linear;}
+  
+  /* Trust Badge Strip */
+  .trust-strip{padding:22px 0;border-top:1px solid rgba(92,158,128,0.12);border-bottom:1px solid rgba(92,158,128,0.12);background:#0e0c0a;overflow:hidden;}
+  .trust-strip__inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;justify-content:center;}
+  .trust-strip__label{font-family:Arial,sans-serif;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(92,158,128,0.5);white-space:nowrap;flex-shrink:0;}
+  .trust-strip__div{width:1px;height:18px;background:rgba(92,158,128,0.12);flex-shrink:0;}
+  .trust-strip__logos{display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:center;}
+  .trust-strip__logo{font-family:Georgia,serif;font-size:12.5px;color:rgba(255,255,255,0.2);letter-spacing:0.3px;white-space:nowrap;}
+  @media(max-width:600px){.trust-strip__label,.trust-strip__div{display:none;}.trust-strip__logos{gap:16px;}.trust-strip__logo{font-size:11px;}}
   </style>
 
   <script type="application/ld+json">
@@ -243,6 +252,19 @@
     <div class="hst"><span class="hsn">All</div><div class="hsl">O'ahu Neighborhoods</div></div>
   </div>
 </div></div><div class="scr">Scroll</div></section>
+<div class="trust-strip">
+  <div class="trust-strip__inner">
+    <span class="trust-strip__label">As Featured In</span>
+    <div class="trust-strip__div"></div>
+    <div class="trust-strip__logos">
+      <span class="trust-strip__logo">Honolulu Magazine</span>
+      <span class="trust-strip__logo">Hawaii Business Magazine</span>
+      <span class="trust-strip__logo">Military Times</span>
+      <span class="trust-strip__logo">Pacific Business News</span>
+      <span class="trust-strip__logo">NerdWallet</span>
+    </div>
+  </div>
+</div>
 
 <div class="mq"><div class="mq-t">
   <span>Neighborhood Consulting</span><span>Housing Search</span><span>School Enrollment</span><span>Vendor Introductions</span><span>Settling-In Support</span><span>Corporate Relocation</span><span>Military PCS</span><span>Lifestyle Management</span>
