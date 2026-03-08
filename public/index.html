@@ -288,10 +288,10 @@
   <p class="hsub r d2">Hele mai means "come, welcome" in Hawaiian. We make the dream of living on O'ahu a seamless reality — guiding executives, families, and entrepreneurs through every step of the transition.</p>
   <div class="hbtns r d3"><a href="#contact" class="btn-g">Book a Free Consultation</a><a href="#services" class="btn-o">Our Services</a></div>
   <div class="hst-row r d4">
-    <div class="hst"><span class="hsn">100+</span><div class="hsl">Families Relocated</div></div>
+    <div class="hst"><span class="hsn" data-count="100" data-suffix="+">0+</span><div class="hsl">Families Relocated</div></div>
     <div class="hst"><span class="hsn">$5k–</span><div class="hsl">Starting Package</div></div>
-    <div class="hst"><span class="hsn">30</span><div class="hsl">Day Settling-In Support</div></div>
-    <div class="hst"><span class="hsn">All</div><div class="hsl">O'ahu Neighborhoods</div></div>
+    <div class="hst"><span class="hsn" data-count="30">0</span><div class="hsl">Day Settling-In Support</div></div>
+    <div class="hst"><span class="hsn">All</span><div class="hsl">O'ahu Neighborhoods</div></div>
   </div>
 </div></div><div class="scr">Scroll</div></section>
 <div class="trust-strip">
@@ -596,6 +596,9 @@
   document.querySelectorAll('.r').forEach(r=>obs.observe(r));
   setTimeout(()=>document.querySelectorAll('.hero .r').forEach(r=>r.classList.add('on')),100);
   window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('s',scrollY>60);const p=document.getElementById('scroll-progress');if(p)p.style.width=Math.min((scrollY/(document.documentElement.scrollHeight-innerHeight))*100,100)+'%';});
+  function animateCounter(el){const target=parseInt(el.getAttribute('data-count'));const suffix=el.getAttribute('data-suffix')||'';if(!target)return;let current=0;const step=target/50;const timer=setInterval(()=>{current=Math.min(current+step,target);el.textContent=Math.round(current)+suffix;if(current>=target)clearInterval(timer);},25);}
+  const statObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){animateCounter(e.target);statObs.unobserve(e.target);}});});
+  document.querySelectorAll('[data-count]').forEach(el=>statObs.observe(el));
   (function(){
     const burger=document.getElementById('burger');
     const nav=document.querySelector('.nl');
