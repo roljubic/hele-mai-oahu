@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hele-mai-oahu.onrender.com/sitemap.xml
